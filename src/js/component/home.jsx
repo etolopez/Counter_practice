@@ -1,26 +1,52 @@
 import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import PropTypes from "prop-types";
+import Options from "./Options";
 
 //create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+const Home = (props) => {
+  return (
+    <div className="container-fluid bg-dark">
+      <div className="text-center">
+        <div className="row m-auto p-5">
+          <div className="col bg-dark text-white m-auto">
+            <h3 className="border border-white bg-secondary rounded-2 p-3">
+			<i className="far fa-clock"></i>
+            </h3>
+          </div>
+          <div className="col bg-dark text-white m-auto">
+            <h3 className="border border-white bg-secondary rounded-2 p-3">
+              {props.secs4}
+            </h3>
+          </div>
+          <div className="col bg-dark text-white m-auto">
+            <h3 className="border border-white bg-secondary rounded-2 p-3">
+              {props.secs3}
+            </h3>
+          </div>
+          <div className="col bg-dark text-white">
+            <h3 className="border border-white bg-secondary rounded-2 p-3">
+              {props.secs2}
+            </h3>
+          </div>
+          <div className="col bg-dark text-white">
+            <h3 className="border border-white bg-secondary rounded-2 p-3">
+              {props.secs1}
+            </h3>
+          </div>
+          <div className="col bg-dark text-white">
+            <h3 className="border border-white bg-secondary rounded-2 p-3">
+              {props.secs}
+            </h3>
+          </div>
+		<Options />
+        </div>
+      </div>
+    </div>
+  );
+};
+Home.propTypes = {
+  secs: PropTypes.number,
+  secs2: PropTypes.number,
 };
 
 export default Home;
